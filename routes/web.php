@@ -22,4 +22,6 @@ Route::get('/about',[PagesController::class, 'about'])->name('about');
 
 Route::get('/contact',[ContactsController::class, 'create'])->name('contact');
 
+Route::post('/contact',[ContactsController::class, 'store'])->name('contact');
+
 
