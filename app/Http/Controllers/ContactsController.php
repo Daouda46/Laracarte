@@ -17,6 +17,7 @@ class ContactsController extends Controller
 
     public function store(ContactRequest $request){
 
+        sleep(3);
        $message = Message::create($request->only('name', 'email', 'message'));
        
 
