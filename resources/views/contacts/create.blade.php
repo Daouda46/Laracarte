@@ -6,7 +6,7 @@
            <h1>Get In touch</h1>
            <p class="text-muted">If you having trouble with this service, <a href="mailto:ouattara.daouda4613@gmail.com">ask for help</a></p>
 
-           <form action="{{ route('contact') }}" method="POST" novalidate>
+           <form action="{{ route('contact') }}" method="POST">
                 {{ csrf_field() }}
                <div class="form-group {{ $errors->has('name')? 'has-error':'' }}">
                    <label for="name" class="control-label">Nom</label>
