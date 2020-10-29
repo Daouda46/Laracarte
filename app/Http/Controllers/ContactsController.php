@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Mail;
 
 use App\Mail\ContactMessage;
 use App\Http\Requests\ContactRequest;
+use App\Models\Message;
 
 class ContactsController extends Controller
 {
@@ -16,10 +17,14 @@ class ContactsController extends Controller
 
     public function store(ContactRequest $request){
 
+       $message = Message::create($request->only('name', 'email', 'message'));
        
-       $mailable = new ContactMessage($request->name, $request->email, $request->message);
-       Mail::to('admin.laracarte@gmail.com')->send($mailable);
 
-       return "Envoye!!";
+       Mail::to(config('laracarte.admin_support_email'))
+            ->send(new ContactMessage($message));
+
+       flashy()->success('Nous vous repondrons dans le plus bref delai .');
+
+       return redirect()->route('home');
     }
 }

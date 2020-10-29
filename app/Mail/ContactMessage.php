@@ -7,23 +7,24 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
+use App\Models\Message;
+
 class ContactMessage extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $name;
-    public $email;
     public $msge;
+    
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($name, $email, $msge)
+    public function __construct(Message $msge)
     {
-       $this->name = $name;
-       $this->email = $email;
+       
        $this->msge = $msge;
+       
     }
 
     /**
