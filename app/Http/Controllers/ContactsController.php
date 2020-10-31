@@ -9,6 +9,8 @@ use App\Mail\ContactMessage;
 use App\Http\Requests\ContactRequest;
 use App\Models\Message;
 
+
+
 class ContactsController extends Controller
 {
     public function create(){

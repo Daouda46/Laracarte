@@ -5,6 +5,8 @@ use App\Http\Controllers\ContactsController;
 use App\Mail\ContactMessage;
 use Illuminate\Support\Facades\Route;
 
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,14 +18,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',[PagesController::class, 'home'])->name('home');
+// Route::get('/',[PagesController::class, 'home'])->name('home');
+Route::view('/','pages.home')->name('home');
 
+// Lien pour le test d email
 Route::get('/test-email',function(){
     return new ContactMessage("DAOUDA", "ouattara.daouda@gmail.com", "Merci pour Laracarte");
 });
 
 
 Route::get('/about',[PagesController::class, 'about'])->name('about');
+// Route::view('/about','pages/about')->name('about');
 
 Route::get('/contact',[ContactsController::class, 'create'])->name('contact');
 

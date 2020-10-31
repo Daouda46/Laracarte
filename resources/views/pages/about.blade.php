@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-md-6">
                 <p class="alert alert-warning">
-                    <strong><i class="fa fa-exclamation-triangle" aria-hidden="true"></i></strong>
+                    <strong><i class="far fa-exclamation-circle" aria-hidden="true"></i></strong>
                     This app has been built by <a href="http://twitter.com/etsmo">@etsmo</a> for learning purposes.
                 </p>
             </div>

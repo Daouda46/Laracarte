@@ -3,6 +3,7 @@
 use Illuminate\Foundation\Inspiring;
 use Illuminate\Support\Facades\Artisan;
 
+use App\Models\Message;
 /*
 |--------------------------------------------------------------------------
 | Console Routes
@@ -14,6 +15,10 @@ use Illuminate\Support\Facades\Artisan;
 |
 */
 
-Artisan::command('inspire', function () {
-    $this->comment(Inspiring::quote());
-})->purpose('Display an inspiring quote');
+Artisan::command('laracarte:clean-database', function () {
+    $this->info("cleaning database");
+
+    Message::twoMonthsOld()->delete();
+
+    $this->info("cleaned database");
+})->purpose('clean database');

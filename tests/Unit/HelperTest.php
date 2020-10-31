@@ -21,5 +21,18 @@ class HelperTest extends TestCase
     public function page_title_should_return_the_correct_title_is_title_is_provided()
     {
         $this->assertEquals('About | Laracarte - list of artisan', page_title('About'));
+        $this->assertEquals('Home | Laracarte - list of artisan', page_title('Home'));
+    }
+
+    public function set_active_route_should_return_the_correct_classe_based_on_a_given_route()
+    {
+        $this->get(route('home'));
+        $this->assertEquals('active', set_active_route('home'));
+        $this->assertEquals('active', set_active_route('about'));
+
+        $this->get(route('contact'));
+        $this->assertEquals('active', set_active_route('contact'));
+        $this->assertEquals('', set_active_route('home'));
+        $this->assertEquals('', set_active_route('about'));
     }
 }

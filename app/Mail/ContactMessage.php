@@ -9,9 +9,9 @@ use Illuminate\Queue\SerializesModels;
 
 use App\Models\Message;
 
-class ContactMessage extends Mailable implements ShouldQueue
+class ContactMessage extends Mailable 
 {
-    use Queueable, SerializesModels;
+    // use Queueable, SerializesModels;
 
     public $msge;
     
