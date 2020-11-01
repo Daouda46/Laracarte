@@ -35,3 +35,7 @@ Route::get('/contact',[ContactsController::class, 'create'])->name('contact');
 Route::post('/contact',[ContactsController::class, 'store'])->name('contact');
 
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
